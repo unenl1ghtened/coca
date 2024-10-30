@@ -1,0 +1,12 @@
+@mixin absolute($value) {
+  position: absolute;
+  inset: &value;
+}
+
+.body {
+  @include absolute(50px);
+
+  &__title {
+    @include absolute(20px);
+  }
+}

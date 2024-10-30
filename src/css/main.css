@@ -1,9 +1,5 @@
-body {
-  position: relative;
-  top: 1px;
-  left: 20px;
-  display: inline;
-  width: 50px;
-  font-size: 20px;
-  background: #fff;
+.body {
+  &__title {
+    color: red;
+  }
 }
