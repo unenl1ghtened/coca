@@ -1,0 +1,35 @@
+@use "./mixins/" as *;
+
+header {
+  @include flex-column-all-center;
+
+  @include small-desktop {
+    color: red;
+  }
+
+  @include tablet {
+    color: blue;
+  }
+
+  @include small-tablet {
+    color: greenyellow;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      color: greenyellow;
+    }
+  }
+
+  h1 {
+    color: aqua;
+  }
+
+  @include mobile {
+    color: magenta;
+  }
+
+  @include small-mobile {
+    color: pink;
+  } 
+} 
