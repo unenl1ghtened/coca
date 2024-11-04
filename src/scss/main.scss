@@ -1,8 +1,8 @@
-@use "./mixins/" as *;
+@import './mixins/';
+@import './base/';
+@import './globals';
 
 header {
-  @include flex-column-all-center;
-
   @include small-desktop {
     color: red;
   }
@@ -15,21 +15,11 @@ header {
     color: greenyellow;
   }
 
-  @media (max-width: 768px) {
-    header {
-      color: greenyellow;
-    }
-  }
-
-  h1 {
-    color: aqua;
-  }
-
   @include mobile {
     color: magenta;
   }
 
   @include small-mobile {
     color: pink;
-  } 
-} 
+  }
+}
