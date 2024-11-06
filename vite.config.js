@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { defineConfig } from 'vite';
 import injectHTML from 'vite-plugin-html-inject';
 import { ViteMinifyPlugin } from 'vite-plugin-minify';

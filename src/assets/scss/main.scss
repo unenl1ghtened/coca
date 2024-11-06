@@ -1,25 +1,7 @@
 @import './mixins/';
 @import './base/';
-@import './globals';
+@import './globals/';
 
-header {
-  @include small-desktop {
-    color: red;
-  }
+// components
 
-  @include tablet {
-    color: blue;
-  }
-
-  @include small-tablet {
-    color: greenyellow;
-  }
-
-  @include mobile {
-    color: magenta;
-  }
-
-  @include small-mobile {
-    color: pink;
-  }
-}
+@import './components/header';
