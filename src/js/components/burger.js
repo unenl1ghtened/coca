@@ -16,7 +16,7 @@ export const useBurger = () => {
     burgerBtn.classList.toggle('burger--active');
     overlay.classList.toggle('overlay--visible');
     burgerMenu.classList.toggle('header__right--visible');
-    body.classList.toggl('body--fixed');
+    body.classList.toggle('body--fixed');
   });
 
   overlay.addEventListener('click', closeBurgerMenu);
