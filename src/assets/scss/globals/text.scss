@@ -87,7 +87,7 @@
       gap: 27px;
       font-weight: 600;
       font-size: 32px;
-      line-height: 131%;
+      line-height: 1.31;
       letter-spacing: -0.03em;
       color: var(--neutral-color-100);
 
@@ -109,9 +109,9 @@
         width: 76px;
         height: 1px;
         background-color: var(--neutral-color-100);
-        transform: translateY(-43px);
+        transform: translateY(-20px);
 
-        @include small-desktop {
+        @include mini-desktop {
           display: none;
         }
       }
