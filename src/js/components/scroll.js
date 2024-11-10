@@ -9,7 +9,7 @@ export const useScroll = () => {
     const currentScroll = window.scrollY;
 
     if (currentScroll <= 0) {
-      header.classList.remove('header--down', 'header--fixed');
+      header.classList.remove('header--up', 'header--down');
       return;
     }
 
@@ -21,9 +21,9 @@ export const useScroll = () => {
         !header.classList.contains('header--show')
       ) {
         header.classList.add('header--down');
-        header.classList.remove('header--fixed');
+        header.classList.remove('header--up');
       } else {
-        header.classList.add('header--fixed');
+        header.classList.add('header--up');
         header.classList.remove('header--down');
       }
     }
