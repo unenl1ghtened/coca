@@ -134,11 +134,15 @@
     }
 
     &-default {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     &-small {
       font-size: 14px;
     }
+  }
+
+  &__info {
+    @include flex-justify-between;
   }
 }
