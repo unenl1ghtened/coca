@@ -2,6 +2,10 @@
   position: relative;
   padding: 87px 0 141px;
 
+  &-decor {
+    position: relative;
+  }
+
   @include mini-desktop {
     padding: 67px 0 121px;
   }

@@ -1,33 +1,38 @@
 /* eslint-disable prettier/prettier */
-export const useScroll = () => {
-  const header = document.querySelector('[data-scroll="header"]');
+export const useHeader = () => {
+  const header = document.querySelector('.header');
+  const heroSection = document.querySelector('.hero');
   const headerHeight = header.offsetHeight;
-  const overlay = document.querySelector('[data-burger="overlay"]');
-  let lastScroll = 0;
+  let lastScrollTop = 0;
+  // Задем отступ от .hero т.к. .header выпадает изи потока
+  heroSection.style.marginTop = `${headerHeight}px`;
+  document.body.style.marginTop = `${headerHeight}px`;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
+    let scrollDistance = window.scrollY;
+    // Добавляем класс header--show и header--background-transparent когда .header находится в самом верху страницы
+    if (scrollDistance <= headerHeight) {
+      header.classList.add('header--show');
+      header.classList.add('header--background-transparent');
+      // Добавляем класс header--fixed при прокрутке вниз, при условии что мы прокрутили больше высоты headerHeight
+    } else if (
+      scrollDistance > lastScrollTop &&
+      scrollDistance > headerHeight
+    ) {
+      header.classList.remove('header--show');
+      header.classList.add('header--fixed');
+      header.classList.remove('header--background-transparent');
 
-    if (currentScroll <= 0) {
-      header.classList.remove('header--up', 'header--down');
-      return;
+      // Добавляем класс header--show и header--fixed при прокрутке вверх
+    } else if (
+      scrollDistance < lastScrollTop &&
+      scrollDistance > headerHeight
+    ) {
+      header.classList.add('header--show');
+      header.classList.add('header--fixed');
+      header.classList.remove('header--background-transparent');
     }
 
-    if (overlay.classList.contains('overlay--visible')) return;
-
-    if (currentScroll > headerHeight) {
-      if (
-        currentScroll > lastScroll &&
-        !header.classList.contains('header--show')
-      ) {
-        header.classList.add('header--down');
-        header.classList.remove('header--up');
-      } else {
-        header.classList.add('header--up');
-        header.classList.remove('header--down');
-      }
-    }
-
-    lastScroll = currentScroll;
+    lastScrollTop = scrollDistance;
   });
 };

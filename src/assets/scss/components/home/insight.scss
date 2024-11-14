@@ -64,6 +64,7 @@
   }
 
   &__article {
+    padding-bottom: 40px;
     max-width: 582px;
 
     @include mini-desktop {

@@ -1,16 +1,17 @@
 .partners {
-  padding: 108px 0;
+  padding: 64px 0;
 
   @include mobile {
-    padding: 76px 0;
+    padding: 20px 0;
   }
 
   &__container {
     @include flex-all-between;
-    gap: 30px;
+    min-width: 0;
 
     @include small-tablet {
-      flex-direction: column;
+      // flex-direction: column;
+      flex-wrap: wrap;
       justify-content: center;
       text-align: center;
     }
@@ -21,23 +22,33 @@
     line-height: 1.78;
     color: var(--neutral-color-150);
 
-    &-num {
-      display: block;
-      margin-bottom: 16px;
-      font-weight: 600;
-      letter-spacing: -0.04em;
-      color: var(--neutral-color-100);
+    @include small-tablet {
+      margin-bottom: 40px;
+    }
+  }
 
-      @include small-mobile {
-        margin-bottom: 10px;
-      }
+  &__num {
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    color: var(--neutral-color-100);
+
+    @include small-mobile {
+      margin-bottom: 10px;
     }
   }
 
   &__list {
-    @include flex-all-center;
+    @include flex-align-center;
     gap: 10px 30px;
     flex-wrap: wrap;
+    justify-content: flex-end;
+
+    @include small-tablet {
+      justify-content: center;
+    }
 
     @include mobile {
       gap: 10px;
@@ -45,10 +56,37 @@
   }
 
   &__item {
-    @include flex-column-all-center;
+    @include flex-all-center;
     border-radius: 16px;
     width: 160px;
     height: 90px;
-    background-color: #fff;
+    background: #fff;
+
+    @include mobile {
+      transform: scale(0.8);
+    }
+  }
+
+  // PartnersSlider
+  &__slide {
+    &.swiper-slide {
+      width: auto;
+
+      @include small-tablet {
+        width: 100%;
+      }
+    }
+  }
+
+  &__wrapper {
+    gap: 10px 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include tablet {
+      column-gap: 0;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
   }
 }
