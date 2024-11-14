@@ -10,7 +10,6 @@
     min-width: 0;
 
     @include small-tablet {
-      // flex-direction: column;
       flex-wrap: wrap;
       justify-content: center;
       text-align: center;
@@ -67,7 +66,6 @@
     }
   }
 
-  // PartnersSlider
   &__slide {
     &.swiper-slide {
       width: auto;

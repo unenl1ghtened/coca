@@ -1,9 +1,28 @@
 /* eslint-disable prettier/prettier */
 import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
-// import Swiper styles
 import 'swiper/css';
-import 'swiper/css/autoplay';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+
+export const useInsightSlider = () => {
+  new Swiper('.insight__slider', {
+    modules: [Pagination],
+    direction: 'horizontal',
+    slidesPerView: 'auto',
+    spaceBetween: 32,
+    loop: true,
+    centeredSlides: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      type: 'bullets',
+    },
+    breakpoints: {
+      993: {
+        centeredSlides: false,
+      },
+    },
+  });
+};
 
 export const usePartnersSlider = () => {
   const resizableSwiper = (breakpoint, swiperClass, swiperSettings) => {
@@ -51,6 +70,19 @@ export const usePartnersSlider = () => {
       768: {
         slidesPerView: 4,
       },
+    },
+  });
+};
+
+export const useTestimonialsSlider = () => {
+  new Swiper('.testimonials__slider', {
+    modules: [Navigation],
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    loop: true,
+    navigation: {
+      prevEl: '.testimonials__btn--prev',
+      nextEl: '.testimonials__btn--next',
     },
   });
 };
