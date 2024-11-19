@@ -1,15 +1,27 @@
 /* eslint-disable prettier/prettier */
 export const useHeader = () => {
   const header = document.querySelector('.header');
+  if (!header) return;
+
   const heroSection = document.querySelector('.hero');
   const headerHeight = header.offsetHeight;
   let lastScrollTop = 0;
+
   // Задем отступ от .hero т.к. .header выпадает изи потока
-  heroSection.style.marginTop = `${headerHeight}px`;
+  if (heroSection) {
+    heroSection.style.marginTop = `${headerHeight}px`;
+  } else {
+    const nextSection = header.nextElementSibling;
+
+    if (nextSection) {
+      nextSection.style.marginTop = `${headerHeight}px`;
+    }
+  }
   document.body.style.marginTop = `${headerHeight}px`;
 
   window.addEventListener('scroll', () => {
     let scrollDistance = window.scrollY;
+
     // Добавляем класс header--show и header--background-transparent когда .header находится в самом верху страницы
     if (scrollDistance <= headerHeight) {
       header.classList.add('header--show');
