@@ -1,8 +1,10 @@
 export const usePriceSwitcher = () => {
   const switcher = document.querySelector('[data-price="switcher"]');
+  const plan = document.querySelectorAll('[data-price="plan"]');
   const starterPrice = document.querySelector('[data-price="starter"]');
   const popularPrice = document.querySelector('[data-price="popular"]');
   const enterpricePrice = document.querySelector('[data-price="enterprice"]');
+
   const priceList = {
     starter: {
       default: 120,
@@ -17,6 +19,10 @@ export const usePriceSwitcher = () => {
       withSale: 2100,
     },
   };
+  const planList = {
+    year: '/year',
+    month: '/mon',
+  };
 
   const setPricesWithSale = () => {
     starterPrice.textContent = priceList.starter.withSale;
@@ -30,14 +36,29 @@ export const usePriceSwitcher = () => {
     enterpricePrice.textContent = priceList.enterprice.default;
   };
 
+  const changePlaneToMonth = () => {
+    plan.forEach((element) => {
+      element.textContent = planList.month;
+    });
+  };
+
+  const changePlaneToYear = () => {
+    plan.forEach((element) => {
+      element.textContent = planList.year;
+    });
+  };
+
   switcher.checked = true;
   setPricesWithSale();
+  plan.innerText = planList.year;
 
   switcher.addEventListener('change', () => {
     if (switcher.checked) {
       setPricesWithSale();
+      changePlaneToYear();
     } else {
       setDefaultPrices();
+      changePlaneToMonth();
     }
   });
 };
