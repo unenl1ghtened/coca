@@ -136,8 +136,11 @@
   &__item {
     &-title {
       margin-bottom: 24px;
+      padding: 0;
       font-weight: 700;
       line-height: 1.5;
+      color: var(--neutral-color-100);
+      pointer-events: none;
     }
 
     @include mobile {
@@ -183,6 +186,11 @@
   &__nav {
     @include tablet {
       width: 100%;
+    }
+
+    @include small-tablet {
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -275,5 +283,75 @@
     font-weight: 500;
     line-height: 1.43;
     color: #fff;
+  }
+}
+
+.accordion-list {
+  @include small-tablet {
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  @include mobile {
+    max-width: 250px;
+  }
+
+  &__item {
+    @include small-tablet {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__control {
+    @include small-tablet {
+      margin-bottom: 10px;
+      padding: 0;
+      width: 100%;
+      color: var(--neutral-color-100);
+      pointer-events: auto;
+    }
+
+    @include small-tablet {
+      @include flex-all-between;
+      position: relative;
+
+      &::after {
+        transform: rotate(90deg);
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: inline-block;
+        border-radius: 2px;
+        width: 18px;
+        height: 3px;
+        background-color: var(--neutral-color-100);
+      }
+    }
+  }
+
+  &__content {
+    @include small-tablet {
+      display: none;
+    }
+  }
+
+  &__item--opened {
+    .accordion-list {
+      &__content {
+        display: inline-block;
+      }
+
+      &__control {
+        &::after {
+          display: none;
+        }
+      }
+    }
   }
 }
