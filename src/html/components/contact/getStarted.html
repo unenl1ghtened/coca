@@ -13,7 +13,7 @@
           hellosansbrothers@gmail.com
         </a>
       </p>
-      <form class="get-started__form">
+      <form class="get-started__form" id="form">
         <div class="get-started__form-top">
           <label class="get-started__form-label text-p-small">
             <span class="get-started__form-label-text text-p-small">
@@ -21,11 +21,13 @@
             </span>
             <input
               type="text"
+              id="first-name"
               required
               class="get-started__form-input text-p-small get-started__form-input--small"
               name="first name"
               placeholder="First name"
             />
+            <small class="get-started__form-label-error"></small>
           </label>
           <label class="get-started__form-label text-p-small">
             <span class="get-started__form-label-text text-p-small">
@@ -36,8 +38,10 @@
               required
               class="get-started__form-input text-p-small get-started__form-input--small"
               name="last name"
+              id="last-name"
               placeholder="Last name"
             />
+            <small class="get-started__form-label-error"></small>
           </label>
         </div>
         <label class="get-started__form-label text-p-small">
@@ -47,8 +51,10 @@
             required
             class="get-started__form-input text-p-small"
             name="email"
+            id="email"
             placeholder="you@company.com"
           />
+          <small class="get-started__form-label-error"></small>
         </label>
         <label class="get-started__form-label text-p-small">
           <span class="get-started__form-label-text text-p-small">
@@ -60,8 +66,10 @@
             required
             class="get-started__form-input text-p-small"
             name="phone"
+            itemid="phone"
             placeholder=""
           />
+          <small class="get-started__form-label-error"></small>
         </label>
         <label class="get-started__form-label text-p-small">
           <span class="get-started__form-label-text text-p-small">
@@ -69,6 +77,7 @@
           </span>
           <textarea
             type="text"
+            maxlength="600"
             class="get-started__form-input get-started__form-input--textarea text-p-small"
             name="messaget"
             placeholder="Leave us a message..."/></textarea>

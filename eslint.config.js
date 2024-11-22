@@ -17,6 +17,7 @@ export default [
     },
     rules: {
       'prettier/prettier': 'error',
+      'no-useless-escape': 'off',
     },
   },
   pluginJs.configs.recommended,

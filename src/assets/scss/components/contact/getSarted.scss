@@ -81,6 +81,7 @@
 
     &-label {
       @include flex-column;
+      position: relative;
       margin-bottom: 24px;
       width: 100%;
 
@@ -90,6 +91,12 @@
         font-weight: 500;
         line-height: 143%;
         color: #1d1e25;
+      }
+
+      &-error {
+        position: absolute;
+        bottom: -28px;
+        color: var(--error-color);
       }
     }
 
@@ -114,6 +121,10 @@
         outline: none;
         height: 134px;
         resize: none;
+      }
+
+      &--error {
+        border: 1px solid var(--error-color);
       }
     }
 
