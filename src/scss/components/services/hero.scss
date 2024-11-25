@@ -148,8 +148,9 @@
 
     &-socials,
     &-name {
-      align-items: center;
-      text-align: center;
+      @include mobile {
+        align-items: center;
+      }
     }
 
     &-text {
