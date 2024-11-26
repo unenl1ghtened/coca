@@ -1,5 +1,23 @@
 .hero {
-  padding: 105px 0 135px;
+  padding: 105px 0 160px !important;
+
+  @include mobile {
+    padding: 56px 0 80px !important;
+  }
+
+  &-decor {
+    &::before {
+      top: 1186px;
+      left: 21px;
+      filter: blur(100px);
+    }
+
+    &::after {
+      top: 1934px;
+      right: 0;
+      filter: blur(80px);
+    }
+  }
 
   @include small-tablet {
     padding-bottom: 50px;
@@ -28,9 +46,14 @@
   &__desc {
     @include flex-all-between;
     gap: 15px;
+    margin-bottom: 135px;
 
     @include small-tablet {
       flex-direction: column;
+    }
+
+    @include mobile {
+      margin-bottom: 68px;
     }
 
     &-subtitle {
@@ -47,30 +70,202 @@
         }
       }
     }
+  }
 
-    &-link {
-      display: block;
+  &__circle {
+    @include flex-all-center;
+    position: relative;
+    border-radius: 50%;
+    width: 126px;
+    height: 126px;
 
-      &-icon {
-        content: url('./assets/icons/get-in-touch-black.svg');
-        display: block;
-        width: 128px;
-        height: 128px;
-
-        body[data-theme='dark'] & {
-          content: url('./assets/icons/get-in-touch-white.svg');
+    &-logo {
+      svg {
+        rect {
+          fill: var(--neutral-color-100);
         }
-
-        @include mobile {
-          width: 90px;
-          height: 90px;
-        }
-      }
-
-      @include small-tablet {
-        align-self: flex-end;
-        transform: translateY(-10px);
       }
     }
+
+    &-text {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: anim 10s linear infinite;
+
+      & span {
+        position: absolute;
+        left: 50%;
+        font-family: Roboto, sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        transform-origin: 0 63px;
+      }
+    }
+
+    &-link {
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  &__container {
+    margin-left: 120px;
+
+    @include tablet {
+      margin-left: var(--container-padding);
+    }
+  }
+
+  &__swiper {
+    position: relative;
+    width: 1320px;
+
+    @include small-tablet {
+      width: 992px;
+    }
+
+    @include small-mobile {
+      width: 100%;
+    }
+
+    &-container {
+      overflow: hidden;
+      margin-top: 135px;
+    }
+  }
+
+  &__slide {
+    max-width: 502px;
+    max-height: 630px;
+
+    img {
+      margin-bottom: 24px;
+      width: 100%;
+      height: auto;
+    }
+
+    &-title {
+      margin-bottom: 8px;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      color: var(--neutral-color-100);
+    }
+
+    &-desc {
+      overflow: hidden;
+      margin-bottom: 22px;
+      font-weight: 500;
+      line-height: 1.78;
+      color: var(--neutral-color-150);
+    }
+
+    &-btn {
+      padding: 16px 32px;
+      color: var(--neutral-color-10);
+      background: var(--neutral-color-100);
+      transition:
+        border var(--transition),
+        color var(--transition),
+        background-color var(--transition),
+        opacity var(--transition);
+
+      &:hover {
+        border: 1px solid var(--neutral-color-40);
+        color: var(--neutral-color-100);
+        background-color: var(--neutral-color-10);
+      }
+
+      &:active {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &__btn--prev {
+    right: 61%;
+    border-radius: 100px 0 0 100px;
+
+    @include small-tablet {
+      right: 20%;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    svg {
+      right: 5px;
+    }
+  }
+
+  &__btn--next {
+    left: 38.9%;
+    border-radius: 0 100px 100px 0;
+
+    @include small-tablet {
+      left: 80%;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    svg {
+      left: 5px;
+    }
+  }
+
+  &__btn--prev,
+  &__btn--next {
+    position: absolute;
+    top: 99px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 100px;
+    background-color: #fff;
+    transition: all 0.9s;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      path {
+        stroke: #1d1e25;
+      }
+    }
+
+    &:hover {
+      background-color: #7e8492;
+    }
+
+    &:hover svg {
+      transition-timing-function: ease-in-out;
+
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+}
+
+@keyframes anim {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.text-p-subtitle {
+  &::before {
+    transform: translateY(-84px);
   }
 }

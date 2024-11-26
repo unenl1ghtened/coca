@@ -6,8 +6,12 @@ import { useTheme } from './components/theme.js';
 import { useBurger } from './components/burger.js';
 import { useHeader } from './components/scroll.js';
 import { useFooterAccordion } from './components/footer-accordion.js';
+import { useTextAnimation } from './components/collaborate/textAnimation.js';
+import { useCollaborateHeroSlider } from './components/collaborate/slider.js';
 
 useTheme();
 useBurger();
 useHeader();
 useFooterAccordion();
+useTextAnimation();
+useCollaborateHeroSlider();
