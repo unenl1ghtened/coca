@@ -3,14 +3,34 @@ import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 
 export const useCollaborateHeroSlider = () => {
-  new Swiper('.hero__swiper', {
+  new Swiper('.hero__slider', {
     modules: [Navigation],
-    slidesPerView: 'auto',
-    spaceBetween: 20,
+    slidesPerView: 1.2,
+    spaceBetween: 10,
     loop: true,
+    breakpoints: {
+      381: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+        loop: true,
+      },
+
+      992: {
+        slidesPerView: 2.8,
+        spaceBetween: 15,
+        loop: true,
+      },
+
+      1201: {
+        slidesPerView: 'auto',
+        spaceBetween: 32,
+        loop: true,
+      },
+    },
+
     navigation: {
-      prevEl: '.hero__btn--prev',
-      nextEl: '.hero__btn--next',
+      nextEl: '.about__btn--next',
+      prevEl: '.about__btn--prev',
     },
   });
 };
