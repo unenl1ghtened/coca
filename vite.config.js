@@ -28,6 +28,7 @@ export default defineConfig({
         pricing: './src/pricing.html',
         contact: './src/contact.html',
         services: './src/services.html',
+        collaborate: './src/collaborate.html',
       },
     },
   },
