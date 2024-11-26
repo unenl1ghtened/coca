@@ -168,10 +168,6 @@
       right: 50%;
     }
 
-    @include mobile {
-      display: none;
-    }
-
     svg {
       right: 5px;
       transform: translateX(-5px);
@@ -185,10 +181,6 @@
 
     @include small-tablet {
       left: 50%;
-    }
-
-    @include mobile {
-      display: none;
     }
 
     svg {
@@ -229,6 +221,10 @@
       path {
         stroke: #fff;
       }
+    }
+
+    @include mobile {
+      display: none;
     }
   }
 
