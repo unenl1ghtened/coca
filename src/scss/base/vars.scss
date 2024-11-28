@@ -30,7 +30,7 @@
   --black-bg-color: #1d1e25;
 
   // container
-  --container-padding: 15px;
+  --container-padding: 120px;
   --container-width: 1200px;
 
   // system colors
@@ -40,14 +40,17 @@
 
   @include mini-desktop {
     --container-width: 1000px;
+    --container-padding: 60px;
   }
 
   @include tablet {
     --container-width: 860px;
+    --container-padding: 30px;
   }
 
   @include mobile {
     --container-width: 480px;
+    --container-padding: 15px;
   }
 
   // transition
