@@ -29,6 +29,7 @@ export default defineConfig({
         contact: './src/contact.html',
         services: './src/services.html',
         collaborate: './src/collaborate.html',
+        blog: './src/blog.html',
       },
     },
   },
