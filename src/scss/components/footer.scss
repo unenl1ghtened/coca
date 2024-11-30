@@ -139,12 +139,17 @@
       padding: 0;
       font-weight: 700;
       line-height: 1.5;
-      color: var(--neutral-color-100);
+      color: #fff;
       pointer-events: none;
+    }
+
+    @include small-tablet {
+      font-size: 24px;
     }
 
     @include mobile {
       min-width: 143px;
+      font-size: 18px;
     }
   }
 
@@ -158,6 +163,14 @@
       font-weight: 400;
       line-height: 1.5;
       color: var(--neutral-color-150);
+
+      @include small-tablet {
+        font-size: 18px;
+      }
+
+      @include mobile {
+        font-size: 16px;
+      }
 
       &::after {
         content: '';
@@ -304,6 +317,10 @@
   }
 
   &__control {
+    &-title {
+      color: #fff;
+    }
+
     @include small-tablet {
       margin-bottom: 10px;
       padding: 0;
@@ -330,7 +347,7 @@
         border-radius: 2px;
         width: 18px;
         height: 3px;
-        background-color: var(--neutral-color-100);
+        background-color: #fff;
       }
     }
   }

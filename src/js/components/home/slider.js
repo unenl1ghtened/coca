@@ -1,27 +1,76 @@
 /* eslint-disable prettier/prettier */
 import Swiper from 'swiper';
 import 'swiper/css';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css/effect-fade';
+import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 
 export const useInsightSlider = () => {
-  new Swiper('.insight__slider', {
-    modules: [Pagination],
-    direction: 'horizontal',
-    slidesPerView: 'auto',
-    spaceBetween: 32,
-    loop: true,
-    centeredSlides: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      type: 'bullets',
-    },
-    breakpoints: {
-      993: {
+  let swiper;
+
+  const initSwiper = () => {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth <= 380) {
+      // слайдер с эффектов fade
+      swiper = new Swiper('.insight__slider', {
+        modules: [Pagination, EffectFade, Navigation],
+        direction: 'horizontal',
+        slidesPerView: 'auto',
+        spaceBetween: 32,
+        loop: true,
+        centeredSlides: true,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true,
+        },
+        navigation: {
+          nextEl: '.insight__btn--next',
+          prevEl: '.insight__btn--prev',
+        },
+      });
+    } else if (screenWidth >= 993) {
+      // выключаем центрироваие слайдов
+      swiper = new Swiper('.insight__slider', {
+        modules: [Pagination, Navigation],
+        direction: 'horizontal',
+        slidesPerView: 'auto',
+        spaceBetween: 32,
+        loop: true,
         centeredSlides: false,
-      },
-    },
-  });
+        navigation: {
+          nextEl: '.insight__btn--next',
+          prevEl: '.insight__btn--prev',
+        },
+      });
+    } else if (screenWidth > 380) {
+      // слайдер без эффека fade
+      swiper = new Swiper('.insight__slider', {
+        modules: [Pagination, Navigation],
+        direction: 'horizontal',
+        slidesPerView: 'auto',
+        spaceBetween: 32,
+        loop: true,
+        centeredSlides: false,
+        navigation: {
+          nextEl: '.insight__btn--next',
+          prevEl: '.insight__btn--prev',
+        },
+      });
+    }
+  };
+
+  // уничтожить предыдущий экземпляр Swiper и пересоздать его при изменении размера экрана
+
+  const handleResize = () => {
+    if (swiper) {
+      swiper.destroy(true, true);
+    }
+    initSwiper();
+  };
+
+  initSwiper();
+
+  window.addEventListener('resize', handleResize);
 };
 
 export const usePartnersSlider = () => {
@@ -76,10 +125,14 @@ export const usePartnersSlider = () => {
 
 export const useTestimonialsSlider = () => {
   new Swiper('.testimonials__slider', {
-    modules: [Navigation],
+    modules: [Navigation, EffectFade],
     slidesPerView: 'auto',
     spaceBetween: 20,
     loop: true,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+    },
     navigation: {
       prevEl: '.testimonials__btn--prev',
       nextEl: '.testimonials__btn--next',

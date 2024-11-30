@@ -1,21 +1,9 @@
 export const useFooterAccordion = () => {
   const container = document.querySelector('.container');
   const accordionList = document.querySelectorAll('[data-accordion="list"]');
-  const footerListTitle = document.querySelectorAll('.footer__item-title');
-  const footerListLink = document.querySelectorAll('.footer__subitem-link');
 
   const checkWidth = () => {
     if (container.clientWidth <= 768) {
-      // делаем заголовок больше
-      footerListTitle.forEach((el) => {
-        el.classList.add('text-p-large');
-      });
-
-      // делаем больше текст
-      footerListLink.forEach((el) => {
-        el.classList.add('text-p-medium');
-      });
-
       accordionList.forEach((el) => {
         el.addEventListener('click', (e) => {
           const openedAccordionContent = el.querySelector(
@@ -57,14 +45,6 @@ export const useFooterAccordion = () => {
         });
       });
     } else {
-      footerListTitle.forEach((el) => {
-        el.classList.remove('text-p-large');
-      });
-
-      footerListLink.forEach((el) => {
-        el.classList.remove('text-p-medium');
-      });
-
       return;
     }
   };

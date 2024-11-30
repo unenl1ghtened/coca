@@ -15,3 +15,4 @@ usePartnersSlider();
 useFooterAccordion();
 usePhone();
 useInputValidation();
+useMap();

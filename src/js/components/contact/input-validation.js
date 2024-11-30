@@ -67,12 +67,19 @@ export const useInputValidation = () => {
     let valid = false;
     const phone = phoneEl.value.trim();
 
-    const phoneRegex = /^[0-9]{8,15}$/;
-
+    const phoneRegex = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
     if (!isRequired(phone)) {
-      showError(phoneEl, 'Phone number cannot be blank.');
+      showError(phoneEl, 'The phone number field cannot be empty.');
+    } else if (phone.length < 8 || phone.length > 16) {
+      showError(
+        phoneEl,
+        'The phone number must contain between 8 and 16 characters.',
+      );
     } else if (!phoneRegex.test(phone)) {
-      showError(phoneEl, 'Phone number is not valid. Use 8-15 digits only.');
+      showError(
+        phoneEl,
+        'The phone number format is invalid. Please enter a valid number.',
+      );
     } else {
       valid = true;
     }

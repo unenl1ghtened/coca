@@ -144,6 +144,7 @@
 
   &__plans {
     @include flex-all-between;
+    gap: 15px;
 
     @include tablet {
       gap: 40px 60px;
@@ -177,6 +178,7 @@
           font-weight: 500;
           font-size: 14px;
           line-height: 1.43;
+          white-space: nowrap;
           text-align: center;
           color: #fff;
           background: #1463ff;
